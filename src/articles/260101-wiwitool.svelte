@@ -7,7 +7,7 @@
         date: "01-01-26",
         title: "",
         text: "Custom Minecraft painting & disc generator",
-        image: "/260101-wiwitool/1.png",
+        image: "/260101-wiwitool/1.webp",
         noContent: true,
     };
 </script>

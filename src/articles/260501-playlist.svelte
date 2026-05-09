@@ -6,7 +6,7 @@
         tags: ["music", "playlist"],
         date: "01-05-26",
         text: "Playlist — Dear Louise, I'm here.",
-        image: "/260501-playlist/1.png",
+        image: "/260501-playlist/1.webp",
         noContent: true,
     };
 </script>

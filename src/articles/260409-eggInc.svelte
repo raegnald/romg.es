@@ -6,7 +6,7 @@
         tags: ["projects"],
         date: "09-04-26",
         text: "Egg. Inc automatic drone clicker",
-        image: "/260409-eggInc/1.png",
+        image: "/260409-eggInc/1.webp",
         noContent: true,
     };
 </script>
