@@ -1,14 +1,17 @@
 <script lang="ts">
+    import { draw, fade, fly, slide } from "svelte/transition";
     import { filterTypeStore } from "../stores/filterTypeStore";
     import { Menu } from "@lucide/svelte";
 
     let minWidth: number = 650;
     let windowWidth: number = 1200;
-    let showLinks: boolean = true;
+    let showLinks: boolean = false;
+
+    const growDuration = 100; // in ms
 </script>
 
 <section class="top-bar" bind:clientWidth={windowWidth}>
-    <a class="page-title" href="/"> romg.es </a>
+    <a class="page-title" href="/">romg.es</a>
     {#if windowWidth > minWidth}
         <div class="navigation-items">
             <a
@@ -67,9 +70,16 @@
         </div>
     {/if}
 </section>
+
 {#if showLinks && windowWidth < minWidth}
-    <section class="grid-wrapper hamburger-links">
-        <div>
+    <section
+        class="grid-wrapper hamburger-links"
+        transition:slide={{ duration: growDuration }}
+    >
+        <div
+            class="hamburger-tabs"
+            in:fly={{ delay: growDuration + 200, duration: 200, y: -30 }}
+        >
             <a
                 class="nav-bar-link"
                 href="/projects"
@@ -80,7 +90,10 @@
                 projects
             </a>
         </div>
-        <div>
+        <div
+            class="hamburger-tabs"
+            in:fly={{ delay: growDuration + 100, duration: 200, y: -30 }}
+        >
             <a
                 class="nav-bar-link"
                 href="/music"
@@ -91,7 +104,10 @@
                 music
             </a>
         </div>
-        <div>
+        <div
+            class="hamburger-tabs"
+            in:fly={{ delay: growDuration + 0, duration: 200, y: -30 }}
+        >
             <a
                 class="nav-bar-link"
                 href="/pictures"
@@ -102,22 +118,21 @@
                 pictures
             </a>
         </div>
-        <div>
+        <div class="socials">
             <a
+                in:fly={{ delay: 300, duration: 200, y: -30 }}
                 class="nav-bar-social"
                 href="https://github.com/ricardoromg"
                 target="_blank">GitHub</a
             >
-        </div>
-        <div>
             <a
+                in:fly={{ delay: 200, duration: 200, y: -30 }}
                 class="nav-bar-social"
                 href="https://www.instagram.com/ricardo.romg/"
                 target="_blank">Instagram</a
             >
-        </div>
-        <div>
             <a
+                in:fly={{ delay: 100, duration: 200, y: -30 }}
                 class="nav-bar-social"
                 href="https://open.spotify.com/user/uq7oset96hcm7bgrplffenxhv?si=c91d6261520d4b8c"
                 target="_blank">Spotify</a
@@ -133,5 +148,31 @@
         align-items: center;
         justify-content: right;
         flex: 1;
+    }
+
+    .socials {
+        grid-column-end: span 3;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .hamburger-links {
+        & a.nav-bar-social {
+            display: inline;
+            border-radius: 20px;
+            padding: 5px 10px;
+            box-shadow:
+                inset 0 2px 4px rgba(0, 0, 0, 0.1),
+                inset 0 -1px 6px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .hamburger-tabs {
+        border-radius: 20px;
+        padding: 5px 10px;
+        box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.1),
+            0 -1px 6px rgba(0, 0, 0, 0.08);
     }
 </style>
