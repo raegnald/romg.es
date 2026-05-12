@@ -14,10 +14,17 @@
     box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Fraunces-Fallback";
+  src: local("serif");
+  size-adjust: 96%;
+  ascent-override: 95%;
+  descent-override: 20%;
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: "Fraunces", serif;
+    font-family: "Fraunces", "Fraunces-Fallback", serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
