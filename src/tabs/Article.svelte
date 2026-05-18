@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Spinner from "../components/Spinner.svelte";
     import FourOFour from "./FourOFour.svelte";
 
     export let meta: any = null;
@@ -41,5 +42,6 @@
 {:else if loaded}
     <FourOFour />
 {:else}
+    <center><Spinner /></center>
     <p class="center emph">Loading...</p>
 {/if}

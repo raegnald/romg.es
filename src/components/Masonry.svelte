@@ -3,6 +3,7 @@
 <script lang="ts">
     import { onMount, onDestroy, setContext } from "svelte";
     import { writable } from "svelte/store";
+    import Spinner from "./Spinner.svelte";
 
     export let brickMinWidth: number = 200;
     let masonryWidth: number = 200;
@@ -113,6 +114,10 @@
     }
 </script>
 
+{#if !isLoaded}
+    <center><Spinner /></center>
+    <p class="center emph">Loading...</p>
+{/if}
 <div
     bind:this={masonryLayout}
     bind:clientWidth={masonryWidth}
