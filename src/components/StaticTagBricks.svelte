@@ -1,5 +1,6 @@
 <script lang="ts">
     import Brick from "./Brick.svelte";
+    import Spinner from "./Spinner.svelte";
 
     export let filter: string = "";
 </script>
@@ -125,6 +126,14 @@
                 <span class="emph">basic understanding</span> of most languages and
                 architectures.
             </p>
+        </div>
+    </Brick>
+{/if}
+
+{#if import.meta.env.DEV}
+    <Brick span={1} link="" noContent={true}>
+        <div class="brick-card" style={"padding:1em;"}>
+            <center><Spinner /></center>
         </div>
     </Brick>
 {/if}
